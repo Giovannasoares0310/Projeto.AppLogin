@@ -17,7 +17,7 @@ namespace AppLogin.Models
         [Display(Name = "Sexo")]
         [Required(ErrorMessage = "O Sexo brigatório.")]
         [StringLength(1, ErrorMessage = "Deve Conter 1 caracter")]
-        public string sexo { get; set; }
+        public string Sexo { get; set; }
 
         [Display(Name = "CPF")]
         [Required(ErrorMessage = "O CPF é obrigatório")]
@@ -41,6 +41,6 @@ namespace AppLogin.Models
 
         [Display(Name = "Situação")]
         [Required(ErrorMessage = "A situação é obrigatória")]
-        public string Situação { get; set; }
+        public string Situacao { get; set; }
     }
 }
