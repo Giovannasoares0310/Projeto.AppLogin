@@ -31,7 +31,7 @@ namespace AppLogin.Models
         public string Senha { get; set; }
 
         [Display(Name = "Tipo")]
-        [Required(ErrorMessage = "O tipo é obrigatória")]
-        public string Situação { get; set; }
+        [Required(ErrorMessage = "O tipo é obrigatório")]
+        public string Tipo { get; set; }
     }
 }

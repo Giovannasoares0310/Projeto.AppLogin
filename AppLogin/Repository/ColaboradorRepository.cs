@@ -1,5 +1,9 @@
 ﻿using AppLogin.Models;
+using AppLogin.Models.Constant;
 using AppLogin.Repository.Contract;
+using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
+using System.Data;
 using X.PagedList;
 
 namespace AppLogin.Repository
@@ -24,7 +28,25 @@ namespace AppLogin.Repository
 
         public void Cadastrar(Colaborador colaborador)
         {
-            throw new NotImplementedException();
+            string comum = ColaboradorTipoConstant.Comum;
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand("insert into Cliente (Nome, CPF, Email, Senha, Tipo)" +
+                    " values (@Nome, @CPF, @Email, @Senha, @Tipo)", conexao);
+                {
+                    cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = colaborador.Nome;
+                    cmd.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = colaborador.CPF;
+                    cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = colaborador.Email;
+                    cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = colaborador.Senha;
+                    cmd.Parameters.Add("@Tipo", MySqlDbType.VarChar).Value = colaborador.Tipo;
+
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                }
+            }
         }
 
         public void Excluir(int Id)
@@ -34,9 +56,34 @@ namespace AppLogin.Repository
 
         public Colaborador Login(string Email, string Senha)
         {
-            throw new NotImplementedException();
-        }
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
 
+                MySqlCommand cmd = new MySqlCommand("select * from Colaborador where @Email and Senha = @Senha", conexao);
+                {
+                    cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = Email;
+                    cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = Senha;
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    MySqlDataReader dr;
+
+                    Colaborador colaborador = new Colaborador();
+                    dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    while (dr.Read())
+                    {
+                        colaborador.Id = (Int32)(dr["Id"]);
+                        colaborador.Nome = (string)(dr["Nome"]);
+                        colaborador.Email = (string)(dr["Email"]);
+                        colaborador.Senha = (string)(dr["Senha"]);
+                        colaborador.Tipo = (string)(dr["Tipo"]);
+
+                    }
+                    return colaborador;
+                }
+            }
+        }
         public Colaborador ObterColaborador(int Id)
         {
             throw new NotImplementedException();

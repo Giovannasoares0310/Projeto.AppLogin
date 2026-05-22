@@ -131,7 +131,7 @@ namespace AppLogin.Repository
                 MySqlCommand cmd = new MySqlCommand("insert into Cliente (Nome, Nascimento, Sexo, CPF, Telefone, Email, Senha, Situacao)" +
                     " values (@Nome, @Nascimento, @Sexo, @CPF, @Telefone, @Email, @Senha, @Situacao)", conexao);
                 {
-                    cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = cliente.Id;
+                    cmd.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = cliente.CPF;
                     cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = cliente.Nome;
                     cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = cliente.Nascimento.ToString("yyyy/MM/dd");
                     cmd.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = cliente.Sexo;
