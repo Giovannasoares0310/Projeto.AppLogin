@@ -8,7 +8,21 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+
 builder.Services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    //Definir um tempo para a duração
+    options.IdleTimeout = TimeSpan.FromSeconds(60);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+builder.Services.AddMvc().AddSessionStateTempDataProvider();
+
+builder.Services.AddScoped<AppLogin.Libraries.Sessao.Sessao>();
 
 var app = builder.Build();
 
@@ -21,6 +35,11 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCookiePolicy();
+
+app.UseSession();
+
 app.UseRouting();
 
 app.UseAuthorization();

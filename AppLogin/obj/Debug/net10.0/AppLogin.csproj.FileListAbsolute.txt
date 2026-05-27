@@ -96,3 +96,17 @@ C:\Users\3mtec\Desktop\AppLogin\AppLogin\AppLogin\obj\Debug\net10.0\refint\AppLo
 C:\Users\3mtec\Desktop\AppLogin\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.pdb
 C:\Users\3mtec\Desktop\AppLogin\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.genruntimeconfig.cache
 C:\Users\3mtec\Desktop\AppLogin\AppLogin\AppLogin\obj\Debug\net10.0\ref\AppLogin.dll
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.csproj.AssemblyReference.cache
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.AssemblyInfoInputs.cache
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.AssemblyInfo.cs
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.csproj.CoreCompileInputs.cache
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.RazorAssemblyInfo.cache
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.RazorAssemblyInfo.cs
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.sourcelink.json
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.dll
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\refint\AppLogin.dll
+C:\Users\3mtec\Desktop\AppLogin\AppLogin\obj\Debug\net10.0\AppLogin.pdb
