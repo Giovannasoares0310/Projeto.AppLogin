@@ -22,16 +22,24 @@ namespace AppLogin.Libraries.Login
             _sessao.Cadastrar(Key, clienteJsonString);
         }
 
-        //public Cliente GetCliente()
-        //{
-        //    //Deserializar
-        //    if (_sessao.Existe(Key))
-        //    {
-        //        string clienteJsonString = _sessao.Consultar(Key);
-        //        return JsonConvert.DeserializeObject<Cliente>(clienteJsonString);
-        //    }
+        public Cliente GetCliente()
+        {
+            //Deserializar
+            if (_sessao.Existe(Key))
+            {
+                string clienteJsonString = _sessao.Consultar(Key);
+                return JsonConvert.DeserializeObject<Cliente>(clienteJsonString);
+            }
+            else
+            {
+                return null;
+            }
+        }
 
-        //    return ;
-        //}
+        //Remove a sessão e desloga cliente
+        public void Logout()
+        {
+            _sessao.RemoverTodos();
+        }
     }
 }
