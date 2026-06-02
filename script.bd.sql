@@ -25,4 +25,8 @@ Tipo Varchar(8) not null
 
 insert into Cliente values (default, 'Laura', '2008-11-06 19:23:00', 'F', '54909258841', '(11)940407496', 'lauxavi1357@gmail.com', 'Chubb@12', 'D');
 
+insert into Colaborador values (default, 'Valdiscléia', 'Val_Vul67@gmail.com', 'ValVul67', 'Gerente');
+insert into Colaborador values (default, 'Jonivaldo', 'Joni_valdinho@gmail.com', 'JojoNini', 'Comum');
+
+
 select * from Cliente;
