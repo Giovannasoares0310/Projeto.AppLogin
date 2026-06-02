@@ -26,7 +26,7 @@ namespace AppLogin.Repository
             {
                 conexao.Open();
 
-                MySqlCommand cmd = new MySqlCommand("select * from Cliente where @Email and Senha = @Senha", conexao);
+                MySqlCommand cmd = new MySqlCommand("select * from Cliente where Email = @Email and Senha = @Senha", conexao);
                 {
                     cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = Email;
                     cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = Senha;
@@ -49,7 +49,7 @@ namespace AppLogin.Repository
                         cliente.Situacao = Convert.ToString(dr["Situacao"]);
 
                         cliente.Email = Convert.ToString(dr["Email"]);
-                        cliente.Senha = Convert.ToString(dr["Senha "]);
+                        cliente.Senha = Convert.ToString(dr["Senha"]);
 
                     }
                     return cliente;
@@ -87,7 +87,7 @@ namespace AppLogin.Repository
                             Telefone = Convert.ToString(dr["Telefone"]),
                             Situacao = Convert.ToString(dr["Situacao"]),
                             Email = Convert.ToString(dr["Email"]),
-                            Senha = Convert.ToString(dr["Senha "])
+                            Senha = Convert.ToString(dr["Senha"])
                         }
                     );
                 }
@@ -108,7 +108,7 @@ namespace AppLogin.Repository
                 {
                     cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = cliente.Id;
                     cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = cliente.Nome;
-                    cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = cliente.Nascimento.ToString("yyyy/MM/dd");
+                    cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar).Value = cliente.Nascimento.ToString("yyyy/MM/dd");
                     cmd.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = cliente.Sexo;
                     cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = cliente.Telefone;
                     cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = cliente.Email;
@@ -133,7 +133,7 @@ namespace AppLogin.Repository
                 {
                     cmd.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = cliente.CPF;
                     cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = cliente.Nome;
-                    cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = cliente.Nascimento.ToString("yyyy/MM/dd");
+                    cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar).Value = cliente.Nascimento.ToString("yyyy/MM/dd");
                     cmd.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = cliente.Sexo;
                     cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = cliente.Telefone;
                     cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = cliente.Email;
