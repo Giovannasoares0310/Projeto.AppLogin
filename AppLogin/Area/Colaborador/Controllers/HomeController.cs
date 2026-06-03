@@ -68,6 +68,10 @@ namespace AppLogin.Area.Colaborador.Controllers
             return View();
         }
 
+        public IActionResult Painel()
+        {
+            return View();
+        }
 
     }
 }

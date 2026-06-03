@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Area\Colaborador\Views\Shared\" />
+    <Folder Include="Area\Colaborador\Views\shared\" />
   </ItemGroup>
 
 </Project>
