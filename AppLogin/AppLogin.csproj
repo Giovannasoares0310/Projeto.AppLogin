@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Area\Colaborador\Views\shared\" />
+    <Folder Include="wwwroot\resources\lib\" />
   </ItemGroup>
 
 </Project>
