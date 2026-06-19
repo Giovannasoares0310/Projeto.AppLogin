@@ -24,7 +24,6 @@ namespace AppLogin.Area.Colaborador.Controllers
         }
 
         [HttpPost]
-
         public IActionResult Login([FromForm] Models.Colaborador colaborador)
         {
             Models.Colaborador colaboradorDB = _repositoryColaborador.Login(colaborador.Email, colaborador.Senha);

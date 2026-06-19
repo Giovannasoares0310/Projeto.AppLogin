@@ -25,12 +25,11 @@ builder.Services.AddMvc().AddSessionStateTempDataProvider();
 
 builder.Services.AddScoped<AppLogin.Libraries.Sessao.Sessao>();
 builder.Services.AddScoped<LoginCliente>();
+builder.Services.AddScoped<LoginColadorador>();
 
 
 //Adicionando programa para manipular sessão
 builder.Services.AddHttpContextAccessor();
-
-
 
 var app = builder.Build();
 
