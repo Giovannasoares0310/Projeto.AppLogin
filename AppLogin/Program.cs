@@ -1,3 +1,4 @@
+using AppLogin.Libraries.Login;
 using AppLogin.Models;
 using AppLogin.Repository;
 using AppLogin.Repository.Contract;
@@ -23,6 +24,12 @@ builder.Services.AddSession(options =>
 builder.Services.AddMvc().AddSessionStateTempDataProvider();
 
 builder.Services.AddScoped<AppLogin.Libraries.Sessao.Sessao>();
+builder.Services.AddScoped<LoginCliente>();
+builder.Services.AddScoped<LoginColadorador>();
+
+
+//Adicionando programa para manipular sessão
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -47,9 +54,14 @@ app.UseAuthorization();
 app.MapStaticAssets();
 
 app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 
 app.Run();
+

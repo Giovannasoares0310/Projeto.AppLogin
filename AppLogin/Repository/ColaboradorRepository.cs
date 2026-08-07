@@ -79,7 +79,7 @@ namespace AppLogin.Repository
             {
                 conexao.Open();
 
-                MySqlCommand cmd = new MySqlCommand("select * from Colaborador where @Email and Senha = @Senha", conexao);
+                MySqlCommand cmd = new MySqlCommand("select * from Colaborador where Email = @Email and Senha = @Senha", conexao);
                 {
                     cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = Email;
                     cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = Senha;

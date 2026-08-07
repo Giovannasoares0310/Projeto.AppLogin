@@ -11,12 +11,12 @@ namespace AppLogin.Controllers
 
         //Injetar dependencia
         private IClienteRepository _clienteRepository;
-        private LoginCliente _loginCliente;
+        private LoginCliente _LoginCliente;
 
         public HomeController(IClienteRepository clienteRepository, LoginCliente loginCliente)
         {
             _clienteRepository = clienteRepository;
-            _loginCliente = loginCliente;
+            _LoginCliente = loginCliente;
         }
 
         public IActionResult Index()
@@ -29,9 +29,9 @@ namespace AppLogin.Controllers
         {
             Cliente clienteDB = _clienteRepository.Login(cliente.Email, cliente.Senha);
 
-            if (clienteDB.Email != null && cliente.Senha != null)
+            if (clienteDB.Email != null && clienteDB.Senha != null)
             {
-                _loginCliente.Login(clienteDB);
+                _LoginCliente.Login(clienteDB);
                 return new RedirectResult(Url.Action(nameof(PainelCliente)));
             }
 
@@ -43,14 +43,36 @@ namespace AppLogin.Controllers
             }
         }
 
+        [HttpGet] 
+        public IActionResult Login()
+        {
+            return View();
+        }
+
         public IActionResult PainelCliente()
         {
-            ViewBag.Nome = _loginCliente.GetCliente().Nome;
-            ViewBag.CPF = _loginCliente.GetCliente().CPF;
-            ViewBag.Email = _loginCliente.GetCliente().Email;
+            // Pega o cliente logado na sessão se existir
+            Cliente cliente = _LoginCliente.GetCliente();
+
+            // verifica se há um cliente logado
+            if (cliente == null)
+            {
+                TempData["MSG_E"] = "Você precisa fazer login para acessar o painel";
+                return RedirectToAction(nameof(Login));
+            }
+
+            ViewBag.Nome = _LoginCliente.GetCliente().Nome;
+            ViewBag.CPF = _LoginCliente.GetCliente().CPF;
+            ViewBag.Email = _LoginCliente.GetCliente().Email;
             //return new ContentResult() { Content = "Este é o Painel do Cliente"
             return View();
 
+        }
+
+        public IActionResult LogoutCliente()
+        {
+            _LoginCliente.Logout();
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Privacy()
