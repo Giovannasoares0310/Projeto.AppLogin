@@ -23,6 +23,16 @@ namespace AppLogin.Area.Colaborador.Controllers
             return View();
         }
 
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Login1()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Login([FromForm] Models.Colaborador colaborador)
         {
